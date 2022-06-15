@@ -15,7 +15,7 @@ const ProductList = () => {
         category: ""})
     const [visible, setVisible] = useState(false)
     const [visibleAdd, setVisibleAdd] = useState(false)
-    const [products, setProducts] = useState(null);
+    const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')));
     const [clicked, setClicked] = useState(null);
     useEffect(() => {
         getProducts(setProducts);

@@ -4,5 +4,5 @@ export const getProducts = (setValue) => {
     };
     fetch('https://fakestoreapi.com/products', options)
             .then(res=>res.json())
-            .then(json=>setValue(json))
+            .then(json=>{return localStorage.getItem('products') ? localStorage.setItem('products', JSON.stringify(json)): json})
 }

@@ -18,14 +18,14 @@ export const addProduct = (value, newV, setValue) => {
         )
     })
         .then(res=>res.json())
-        .then(json=>setValue([...value, json]))
+        .then(json=>localStorage.setItem('products', JSON.stringify([...value, json])))
 }
 export const deleteProduct = (value, setValue, id) => {
     fetch(`https://fakestoreapi.com/products/${id}`,{
             method:"DELETE"
         })
             .then(res=>res.json())
-            .then(json=>setValue(value.filter(el => el.id !== id)))
+            .then(json=>localStorage.setItem('products', JSON.stringify((value.filter(el => el.id !== id)))))
 }
 export const editProduct = () => {
     
